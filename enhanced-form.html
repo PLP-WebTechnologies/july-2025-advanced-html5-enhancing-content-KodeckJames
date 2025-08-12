@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp Solutions - Enhanced HTML5 Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #718096;
+            font-weight: 300;
+        }
+
+        section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        /* Lists Styling */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+
+        .feature-list li {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .definition-list {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .definition-list dt {
+            font-weight: bold;
+            color: #4a5568;
+            padding: 10px;
+            background: #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .definition-list dd {
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #e6fffa;
+            transition: background 0.3s ease;
+        }
+
+        .status-active {
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: #d69e2e;
+            font-weight: bold;
+        }
+
+        .status-inactive {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+
+        /* Media Styling */
+        .media-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .audio-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        audio {
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        fieldset {
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            background: #f8fafc;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #4a5568;
+            padding: 0 15px;
+            font-size: 1.2em;
+            background: white;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.95em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        input:valid {
+            border-color: #38a169;
+        }
+
+        input:invalid:not(:focus):not(:placeholder-shown) {
+            border-color: #e53e3e;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover, .radio-item:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .checkbox-item input, .radio-item input {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .reset-btn {
+            background: transparent;
+            color: #718096;
+            border: 2px solid #e2e8f0;
+            padding: 12px 30px;
+            margin-left: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .required-indicator {
+            color: #e53e3e;
+            margin-left: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .media-container {
+                grid-template-columns: 1fr;
+            }
+
+            .definition-list {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group, .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TechCorp Solutions</h1>
+            <p class="subtitle">Innovative Web Development & Digital Solutions</p>
+        </header>
+
+        <section>
+            <h2>Our Services</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h3>Frontend Development</h3>
+                    <ul class="feature-list">
+                        <li>Responsive Web Design</li>
+                        <li>Progressive Web Applications</li>
+                        <li>Modern JavaScript Frameworks</li>
+                        <li>Mobile-First Development</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Backend Solutions</h3>
+                    <ol>
+                        <li>Database Architecture & Design</li>
+                        <li>RESTful API Development</li>
+                        <li>Cloud Infrastructure Setup</li>
+                        <li>Security Implementation</li>
+                        <li>DevOps & CI/CD Pipelines</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h3>Technology Stack</h3>
+            <dl class="definition-list">
+                <dt>Frontend Technologies</dt>
+                <dd>React, Vue.js, Angular, TypeScript, Tailwind CSS</dd>
+                
+                <dt>Backend Technologies</dt>
+                <dd>Node.js, Python, Java, PHP, .NET Core</dd>
+                
+                <dt>Database Systems</dt>
+                <dd>PostgreSQL, MongoDB, MySQL, Redis</dd>
+                
+                <dt>Cloud Platforms</dt>
+                <dd>AWS, Azure, Google Cloud, Vercel, Netlify</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Project Portfolio</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Client</th>
+                        <th>Technology</th>
+                        <th>Timeline</th>
+                        <th>Status</th>
+                        <th>Budget</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>E-Commerce Platform</td>
+                        <td>Retail Corp</td>
+                        <td>React, Node.js</td>
+                        <td>6 months</td>
+                        <td><span class="status-active">Active</span></td>
+                        <td>$75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Healthcare Dashboard</td>
+                        <td>MedTech Solutions</td>
+                        <td>Vue.js, Python</td>
+                        <td>4 months</td>
+                        <td><span class="status-pending">Pending</span></td>
+                        <td>$50,000</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Analytics</td>
+                        <td>FinanceXYZ</td>
+                        <td>Angular, .NET</td>
+                        <td>8 months</td>
+                        <td><span class="status-active">Active</span></td>
+                        <td>$120,000</td>
+                    </tr>
+                    <tr>
+                        <td>Social Media App</td>
+                        <td>StartupABC</td>
+                        <td>React Native</td>
+                        <td>3 months</td>
+                        <td><span class="status-inactive">Completed</span></td>
+                        <td>$35,000</td>
+                    </tr>
+                    <tr>
+                        <td>IoT Dashboard</td>
+                        <td>Smart Industries</td>
+                        <td>React, IoT Core</td>
+                        <td>5 months</td>
+                        <td><span class="status-pending">Planning</span></td>
+                        <td>$85,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Media Showcase</h2>
+            <div class="media-container">
+                <div class="video-wrapper">
+                    <h3>Company Overview</h3>
+                    <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23667eea'/%3E%3Ctext x='400' y='225' text-anchor='middle' dominant-baseline='middle' fill='white' font-size='24' font-family='Arial'%3ECompany Overview Video%3C/text%3E%3C/svg%3E">
+                        <source src="data:," type="video/mp4">
+                        <p>Your browser doesn't support HTML5 video. <a href="#">Download the video</a> instead.</p>
+                    </video>
+                </div>
+                <div class="audio-section">
+                    <h3>Client Testimonials</h3>
+                    <p>Listen to what our satisfied clients have to say about our services.</p>
+                    <audio controls>
+                        <source src="data:," type="audio/mpeg">
+                        <source src="data:," type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p><em>Note: This is a demonstration audio player. In a real implementation, you would provide actual audio files.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Us & Project Inquiry</h2>
+            <div class="form-container">
+                <form action="#" method="post" novalidate>
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required-indicator">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    required 
+                                    minlength="2" 
+                                    maxlength="50"
+                                    pattern="[A-Za-z\s]+" 
+                                    placeholder="Enter your first name"
+                                    autocomplete="given-name"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required-indicator">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    required 
+                                    minlength="2" 
+                                    maxlength="50"
+                                    pattern="[A-Za-z\s]+" 
+                                    placeholder="Enter your last name"
+                                    autocomplete="family-name"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required-indicator">*</span></label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required 
+                                    placeholder="your.email@example.com"
+                                    autocomplete="email"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required-indicator">*</span></label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    required
+                                    pattern="[\+]?[0-9\s\-\(\)]+"
+                                    minlength="10"
+                                    placeholder="+1 (555) 123-4567"
+                                    autocomplete="tel"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input 
+                                    type="text" 
+                                    id="company" 
+                                    name="company" 
+                                    maxlength="100"
+                                    placeholder="Your Company Name"
+                                    autocomplete="organization"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title</label>
+                                <input 
+                                    type="text" 
+                                    id="jobTitle" 
+                                    name="jobTitle" 
+                                    maxlength="100"
+                                    placeholder="Your Job Title"
+                                    autocomplete="organization-title"
+                                >
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Project Details</legend>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="projectType">Project Type <span class="required-indicator">*</span></label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="mobile-app">Mobile Application</option>
+                                    <option value="e-commerce">E-Commerce Solution</option>
+                                    <option value="dashboard">Analytics Dashboard</option>
+                                    <option value="api">API Development</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Project Budget (USD) <span class="required-indicator">*</span></label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select Budget Range</option>
+                                    <option value="under-10k">Under $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="over-100k">Over $100,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Preferred Timeline <span class="required-indicator">*</span></label>
+                                <input 
+                                    type="date" 
+                                    id="timeline" 
+                                    name="timeline" 
+                                    required
+                                    min="2025-08-13"
+                                    max="2026-12-31"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Current Website (if any)</label>
+                                <input 
+                                    type="url" 
+                                    id="website" 
+                                    name="website" 
+                                    placeholder="https://www.yourwebsite.com"
+                                    autocomplete="url"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Services Required <span class="required-indicator">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="frontend" name="services" value="frontend" required>
+                                    <label for="frontend">Frontend Development</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="backend" name="services" value="backend">
+                                    <label for="backend">Backend Development</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="database" name="services" value="database">
+                                    <label for="database">Database Design</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hosting" name="services" value="hosting">
+                                    <label for="hosting">Hosting & Deployment</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="maintenance" name="services" value="maintenance">
+                                    <label for="maintenance">Ongoing Maintenance</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Project Priority <span class="required-indicator">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="low" name="priority" value="low" required>
+                                    <label for="low">Low Priority</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="medium" name="priority" value="medium">
+                                    <label for="medium">Medium Priority</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="high" name="priority" value="high">
+                                    <label for="high">High Priority</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="urgent" name="priority" value="urgent">
+                                    <label for="urgent">Urgent</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="description">Project Description <span class="required-indicator">*</span></label>
+                            <textarea 
+                                id="description" 
+                                name="description" 
+                                required 
+                                minlength="50" 
+                                maxlength="2000"
+                                rows="6"
+                                placeholder="Please describe your project requirements, goals, target audience, and any specific features you need. Include any technical requirements or preferences."
+                            ></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Additional Information</legend>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="referral">How did you hear about us?</label>
+                                <select id="referral" name="referral">
+                                    <option value="">Select an option</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="referral">Word of Mouth</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="conference">Conference/Event</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactTime">Best Time to Contact</label>
+                                <input 
+                                    type="time" 
+                                    id="contactTime" 
+                                    name="contactTime"
+                                    min="09:00" 
+                                    max="17:00"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="projectFile">Project Files/Documents</label>
+                                <input 
+                                    type="file" 
+                                    id="projectFile" 
+                                    name="projectFile"
+                                    accept=".pdf,.doc,.docx,.txt,.jpg,.png"
+                                    multiple
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="clientId">Client ID (for existing clients)</label>
+                                <input 
+                                    type="text" 
+                                    id="clientId" 
+                                    name="clientId" 
+                                    pattern="[A-Z]{2}[0-9]{6}"
+                                    placeholder="AB123456"
+                                    readonly
+                                    title="Format: Two letters followed by six digits"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                                <label for="newsletter">Subscribe to our newsletter for updates and tech insights</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="terms" name="terms" value="accepted" required>
+                                <label for="terms">I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a> <span class="required-indicator">*</span></label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn">Submit Project Inquiry</button>
+                        <button type="reset" class="reset-btn">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 50px; padding: 30px 0; border-top: 2px solid #e2e8f0; color: #718096;">
+            <p>&copy; 2025 TechCorp Solutions. All rights reserved. | Email: contact@techcorp.com | Phone: +1 (555) 123-4567</p>
+        </footer>
+    </div>
+</body>
+</html>
